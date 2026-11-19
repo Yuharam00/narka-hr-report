@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>인사팀장 첫 한 달 보고</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: single editorial column (max 880px), sticky section index, tables over cards, appendix folded */
+:root{
+  --bg:#FAFAF8; --surface:#FFFFFF; --text:#202020; --text-2:#737373; --text-3:#A3A3A0;
+  --border:#E8E8E5; --line:#F0F0EC; --primary:#444EC6; --primary-soft:#EEF0FB;
+  --ok:#0E8A63; --ok-soft:#E7F5EF; --warn:#B7791F; --warn-soft:#FDF5E6; --mute-soft:#F2F2EF;
+  --kr:"Pretendard","Pretendard Variable",-apple-system,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+  --en:"Inter","Pretendard",-apple-system,"Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141414; --surface:#1C1C1B; --text:#EDEDEA; --text-2:#A3A3A0; --text-3:#6E6E6B;
+  --border:#2E2E2C; --line:#262624; --primary:#8F97F0; --primary-soft:#22243A;
+  --ok:#4CC79A; --ok-soft:#16261F; --warn:#F2B54A; --warn-soft:#2C2416; --mute-soft:#232321; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141414; --surface:#1C1C1B; --text:#EDEDEA; --text-2:#A3A3A0; --text-3:#6E6E6B;
+  --border:#2E2E2C; --line:#262624; --primary:#8F97F0; --primary-soft:#22243A;
+  --ok:#4CC79A; --ok-soft:#16261F; --warn:#F2B54A; --warn-soft:#2C2416; --mute-soft:#232321; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--kr);word-break:keep-all;overflow-wrap:break-word;font-size:15.5px;line-height:1.7;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;padding-block:56px 80px}
+.num{font-family:var(--en);font-variant-numeric:tabular-nums}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--primary)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+
+/* header */
+.eyebrow{font-size:13px;color:var(--text-2);letter-spacing:.02em}
+h1{font-size:40px;font-weight:700;line-height:1.25;margin-top:10px;letter-spacing:-.02em}
+.meta{display:flex;flex-wrap:wrap;gap:8px 32px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);font-size:14px}
+.meta dt{color:var(--text-2);font-size:12.5px}
+.meta dd{margin:2px 0 0}
+.conf{display:inline-block;margin-top:16px;font-size:12px;color:var(--text-2);border:1px solid var(--border);border-radius:4px;padding:2px 8px}
+
+/* index */
+nav.idx{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--border);margin-top:40px}
+nav.idx ol{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+nav.idx a{display:block;padding:12px 10px;font-size:13.5px;color:var(--text-2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.idx a:hover{color:var(--text)}
+nav.idx a.on{color:var(--text);border-bottom-color:var(--text);font-weight:600}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+
+section{padding-top:56px;scroll-margin-top:56px}
+h2{font-size:24px;font-weight:600;display:flex;gap:12px;align-items:baseline}
+h2 .k{font-family:var(--en);font-size:14px;font-weight:500;color:var(--text-3)}
+.lead{margin-top:12px;color:var(--text-2);max-width:68ch}
+h3{font-size:16.5px;font-weight:600;margin-top:28px}
+
+/* preface */
+.preface{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px 32px}
+.preface .lbl{font-size:12.5px;color:var(--primary);font-weight:600;letter-spacing:.02em}
+.preface p{margin-top:14px;line-height:1.85}
+.preface p:first-of-type{margin-top:10px}
+.preface .sign{margin-top:18px;color:var(--text-2);font-size:14px}
+
+/* figures strip */
+.figs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:24px;border-top:1px solid var(--text);border-bottom:1px solid var(--border)}
+.fig{padding:18px 14px 16px 0}
+.fig+.fig{padding-left:14px;border-left:1px solid var(--line)}
+.fig .v{font-family:var(--en);font-size:30px;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.fig .v small{font-family:var(--kr);font-size:13px;font-weight:500;color:var(--text-2);margin-left:2px}
+.fig .l{font-size:12.5px;color:var(--text-2);margin-top:6px;line-height:1.45}
+
+.sum{margin-top:24px;display:grid;gap:10px;padding:0;list-style:none}
+.sum li{display:grid;grid-template-columns:96px 1fr;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sum b{font-weight:600;font-size:14px}
+
+/* weeks timeline */
+.weeks{margin-top:24px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative}
+.wk{padding:0 14px 0 0}
+.wk+.wk{padding-left:14px;border-left:1px solid var(--line)}
+.wk .d{font-family:var(--en);font-size:12px;color:var(--text-3);font-variant-numeric:tabular-nums}
+.wk .w{font-size:14px;font-weight:600;margin-top:2px}
+.wk ul{margin:10px 0 0;padding:0;list-style:none;font-size:13.5px;color:var(--text);display:grid;gap:6px;line-height:1.5}
+.wk li{padding-left:10px;position:relative}
+.wk li::before{content:"";position:absolute;left:0;top:.65em;width:4px;height:4px;border-radius:50%;background:var(--text-3)}
+.wk li.m::before{background:var(--primary)}
+.band{grid-column:1 / span 2;margin:14px 0 18px;padding:7px 12px;background:var(--warn-soft);color:var(--warn);font-size:12.5px;font-weight:500;border-radius:4px}
+.band2{grid-column:3 / span 3;margin:14px 0 18px 14px;padding:7px 12px;background:var(--primary-soft);color:var(--primary);font-size:12.5px;font-weight:500;border-radius:4px}
+.note{margin-top:14px;font-size:12.5px;color:var(--text-3)}
+
+/* tables */
+.tw{overflow-x:auto;margin-top:20px;border-top:1px solid var(--text)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:500;font-size:12.5px;color:var(--text-2);padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+td:first-child,th:first-child{padding-left:0}
+td.nw{white-space:nowrap;font-weight:600}
+td .sub{display:block;color:var(--text-2);font-size:13px}
+
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:4px;white-space:nowrap}
+.c-ok{background:var(--ok-soft);color:var(--ok)}
+.c-warn{background:var(--warn-soft);color:var(--warn)}
+.c-mute{background:var(--mute-soft);color:var(--text-2)}
+.c-p{background:var(--primary-soft);color:var(--primary)}
+
+/* opinions */
+.op{margin-top:20px;display:grid;grid-template-columns:150px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--border)}
+.op .h{font-weight:600;font-size:15px}
+.op ol,.op ul{margin:0;padding-left:18px;display:grid;gap:10px}
+.op p+p{margin-top:10px}
+
+.rec{margin-top:20px;padding:18px 22px;border-left:3px solid var(--primary);background:var(--surface);border-radius:0 6px 6px 0}
+.rec b{color:var(--primary)}
+
+.steps{counter-reset:s;list-style:none;padding:0;margin:20px 0 0;display:grid;gap:0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.steps li::before{content:counter(s);font-family:var(--en);color:var(--text-3);font-size:14px}
+.steps li.new{font-weight:600}
+
+/* appendix */
+details{border-bottom:1px solid var(--border)}
+details:first-of-type{border-top:1px solid var(--text);margin-top:20px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:16px 0;font-weight:600;font-size:15px}
+summary::-webkit-details-marker{display:none}
+summary .c{font-weight:400;font-size:13px;color:var(--text-2);display:flex;gap:10px;align-items:center}
+summary .c::after{content:"+";font-family:var(--en);font-size:18px;color:var(--text-3);width:14px;text-align:center}
+details[open] summary .c::after{content:"–"}
+details .tw{margin-top:0;border-top:none;padding-bottom:16px}
+
+.ah{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.oa{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--text-2);font:inherit;font-size:13px;padding:5px 12px;border-radius:4px;cursor:pointer;white-space:nowrap}
+.oa:hover{color:var(--text)}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:760px){
+  .wrap{padding-block:36px 56px}
+  h1{font-size:30px}
+  .figs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .fig:nth-child(4){padding-left:0;border-left:0}
+  .fig:nth-child(n+4){border-top:1px solid var(--line)}
+  .weeks{grid-template-columns:1fr}
+  .wk,.wk+.wk{padding:14px 0;border-left:0;border-top:1px solid var(--line)}
+  .band,.band2{grid-column:1;margin:8px 0 0}
+  .band{order:-1}
+  .op{grid-template-columns:1fr;gap:8px}
+  .sum li{grid-template-columns:1fr;gap:2px}
+  .preface{padding:22px 20px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow num">인사팀장 업무 보고 · 2026.10.12 – 11.11</p>
+    <h1>입사 첫 한 달 업무 보고</h1>
+    <dl class="meta">
+      <div><dt>보고 대상</dt><dd>최다예 대표이사</dd></div>
+      <div><dt>작성</dt><dd>인사팀장 유하람</dd></div>
+      <div><dt>작성일</dt><dd class="num">2026.11.11</dd></div>
+    </dl>
+    <span class="conf">대외비 · 대표이사 보고용</span>
+  </header>
+
+  <nav class="idx" aria-label="목차">
+    <ol>
+      <li><a href="#preface">보고에 앞서</a></li>
+      <li><a href="#appendix">한 달 실행 내역</a></li>
+      <li><a href="#summary">요약</a></li>
+      <li><a href="#flow">한 달의 흐름</a></li>
+      <li><a href="#work">수행 업무</a></li>
+      <li><a href="#opinion">인사팀장 의견</a></li>
+      <li><a href="#focus">강화할 업무</a></li>
+      <li><a href="#way">운영 방식</a></li>
+    </ol>
+  </nav>
+
+  <div class="preface" id="preface">
+    <p class="lbl">보고에 앞서</p>
+    <p>지난 11월 10일 중간보고에 대해 귀한 시간을 내어 상세한 리뷰와 피드백을 주셔서 진심으로 감사드립니다.<br>주신 말씀은 무겁게 받아들이고 있으며,<br>앞으로 주간 미팅에서 저의 판단과 추천안을 보다 선명하게 말씀드리겠습니다.</p>
+    <p>다만 이해를 돕고자 한 가지 말씀을 덧붙이고자 합니다.<br>이번 중간보고는 요청해 주신 <b>세 가지 항목(퇴사자 분석 · 1on1 결과 · 복리후생)</b>을 우선하여 준비한 자료였습니다.<br>당시에는 대표님께서 선호하시는 보고 방식과 필요로 하시는 내용을 충분히 파악하지 못한 상태였고,<br>한 달의 시간을 해당 보고 준비에만 온전히 쓰지는 못하였습니다.</p>
+    <p>같은 기간 저는 인사 업무가 원활히 운영될 수 있도록 규정·데이터·시스템·소통 채널을 갖추는 일에 더 많은 시간을 들였습니다.<br>이 부분은 그동안 별도로 보고드리지 못해 충분히 전달되지 않았을 것으로 생각합니다.<br>부족한 점은 앞으로 보완해 나가겠으며,<br>지난 한 달간의 역할과 노력도 함께 살펴봐 주시면 감사하겠습니다.</p>
+    <p class="sign">인사팀장 유하람 드림</p>
+  </div>
+
+  <section id="appendix">
+    <h2>한 달 실행 내역</h2>
+    <div class="ah"><p class="lead">10/12부터 11/11까지 인사팀장으로서 수행한 일을 영역별로 정리했습니다. 각 영역을 눌러 상세 산출물을 보실 수 있습니다.</p><button type="button" id="openAll" class="oa">모두 펼치기</button></div>
+
+    <details>
+      <summary>1) 규정·제도<span class="c">9건</span></summary>
+      <div class="tw"><table>
+        <thead><tr><th>산출물</th><th>내용</th><th>상태</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">근태관리지침 (NARKA-HR-001)</td><td>출퇴근 기록, 유연근무(08:00~11:00 자율 출근), 휴가 신청 기한, 승인 체계</td><td><span class="chip c-p">11/26 시행</span></td></tr>
+          <tr><td class="nw">수당운영지침 (NARKA-HR-002)</td><td>사전·사후 승인, 수당 신청서, 가산율(근로기준법 제56조), 대표이사 최종결재</td><td><span class="chip c-p">11/26 시행</span></td></tr>
+          <tr><td class="nw">취업규칙</td><td>rev.01 1차 검토(위법·위험 조항 6건, 실무 불일치) → 노무법인 수정본 반영 → 최종 수정</td><td><span class="chip c-p">11/26 제정 예정</span></td></tr>
+          <tr><td class="nw">문서 정보 단일화</td><td>취업규칙·지침 2종·웹사이트 간 불일치 대조·정리</td><td><span class="chip c-ok">완료</span></td></tr>
+          <tr><td class="nw">팀 업무추진비</td><td>품의서, 전사 공지, 사용내역서 양식 (1인당 월 5만 원)</td><td><span class="chip c-p">12/1 시행</span></td></tr>
+          <tr><td class="nw">복리후생 기준</td><td>경조사 지원 기준(Rev.01), 패밀리데이·여름휴가·근속 지원·교육비·명절 선물 기준</td><td><span class="chip c-ok">11/10 확정</span></td></tr>
+          <tr><td class="nw">퇴직연금 DC형</td><td>삼성증권·신한은행·근로복지공단 비교견적</td><td><span class="chip c-warn">품의 준비</span></td></tr>
+          <tr><td class="nw">시용 평가 제도</td><td>평가표 Rev.00, 2회 평가 운영안</td><td><span class="chip c-ok">운영 중</span></td></tr>
+          <tr><td class="nw">연봉 평가 제도</td><td>평가서 2종, 인사위원회 평가표, 운영안</td><td><span class="chip c-ok">운영 중</span></td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details>
+      <summary>2) 인사 데이터·시스템<span class="c">엑셀 8종 · 플렉스 5건</span></summary>
+      <div class="tw"><table>
+        <thead><tr><th>엑셀 관리대장·양식</th><th>용도</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">HR 통합 관리대장 (Rev.06)</td><td>직원마스터·급여대장·온보딩관리·대시보드 — 인사 원장</td></tr>
+          <tr><td class="nw">연차관리대장 (Rev.03)</td><td>2022년~ 월차·연차 발생·사용·정산, 퇴직정산 기초자료</td></tr>
+          <tr><td class="nw">처우협의·오퍼 관리대장 (Rev.01)</td><td>면접 등급별 인상률 자동 산정, 기준 초과·내부 역전 경고</td></tr>
+          <tr><td class="nw">경조사 지원 기준 (Rev.01)</td><td>경조휴가·경조금 범위</td></tr>
+          <tr><td class="nw">시용사원 평가표 (Rev.00)</td><td>수습 2회 평가 기록·서명</td></tr>
+          <tr><td class="nw">연봉협상 평가서 2종</td><td>본인평가, 상위조직장 평가</td></tr>
+          <tr><td class="nw">연봉협상 평가표</td><td>인사위원회 조정·확정</td></tr>
+          <tr><td class="nw">법인카드 사용내역서</td><td>팀 업무추진비 정산</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tw"><table>
+        <thead><tr><th>플렉스 정비</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">급여자료 이관</td><td>1~10월 51명·284건 산식·월별 합계 전수 검증, 급여 항목 5개 추가</td></tr>
+          <tr><td class="nw">연차 설정</td><td>촉진 미운영 상태의 자동소멸 설정 문제 발견 (미사용수당 리스크)</td></tr>
+          <tr><td class="nw">구글 캘린더 연동</td><td>연차 이중 등록 폐지 (11/9 시행, 설정 가이드 포함)</td></tr>
+          <tr><td class="nw">워크플로 양식</td><td>출산전후휴가·육아휴직 통합 신청서(2026 개정법 반영), 사직서 전자결재</td></tr>
+          <tr><td class="nw">입사 서류·인적사항</td><td>입사 서류 플렉스 직접 등록, 전 구성원 인적사항 입력(공지 005)</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details>
+      <summary>3) 사내 인프라<span class="c">5건</span></summary>
+      <div class="tw"><table>
+        <thead><tr><th>산출물</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">인사팀 웹사이트</td><td>허브 + 공지·온보딩·복리후생·근무 가이드·경조사·임직원 할인·브랜드·좌석 배치(3D)·생활 가이드(검토 중)</td></tr>
+          <tr><td class="nw">보안 전환</td><td>비공개 저장소 전환, 회사 메일 인증 로그인 적용</td></tr>
+          <tr><td class="nw">날짜 자동 전환</td><td>11/26 0시부터 새 사무실 좌석 페이지로 자동 변경</td></tr>
+          <tr><td class="nw">경영진 HR 대시보드</td><td>대표·COO·인사팀장 전용, 인원·인건비·연봉 갱신·인사 일정</td></tr>
+          <tr><td class="nw">슬랙 온보딩 워크플로</td><td>신규입사자 환영 인사·가이드 발송</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details>
+      <summary>4) 공지·운영 프로세스<span class="c">공지 7건</span></summary>
+      <div class="tw"><table>
+        <thead><tr><th>산출물</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">공지 표준 템플릿</td><td>문서번호·워드 원본·웹 게시 병행</td></tr>
+          <tr><td class="nw">인사팀 공지 7건</td><td>팀 업무추진비(000), 퇴직 절차(001), 연봉 갱신 평가(002), 시용 평가(003), 인적사항 입력(005), 연차 등록 변경(006), 사무실 이전</td></tr>
+          <tr><td class="nw">오프보딩·지출</td><td>사직서 결재라인·영업비밀준수각서, 법인카드 절차 초안, 지출결의 가이드</td></tr>
+          <tr><td class="nw">사무실 이전 (11/26)</td><td>안도영 이사와 공동 담당, 이전 공지·좌석 배치도</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details>
+      <summary>5) 채용·온보딩<span class="c">입사 확정 5명</span></summary>
+      <div class="tw"><table>
+        <thead><tr><th>산출물</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">오퍼·처우 협의</td><td>11/2 강다혜·박수연, 11/16 곽수진, 11/18 박은애, 11/23 장지현 마케팅팀장</td></tr>
+          <tr><td class="nw">처우 산정 원칙</td><td>직전 계약연봉(증빙) + 면접 등급별 인상률 제안, 내부 역전 방지</td></tr>
+          <tr><td class="nw">온보딩·입사 절차</td><td>온보딩 웹페이지 재구성, 입사 서류 플렉스 등록, 오퍼레터 안내 수정</td></tr>
+          <tr><td class="nw">시용 평가 실행</td><td>1차 평가 요청, 일정 리스크 사전 조정</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details>
+      <summary>6) 진단·보고<span class="c">4건</span></summary>
+      <div class="tw"><table>
+        <thead><tr><th>산출물</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">퇴사자 분석</td><td>최근 12개월 26명, 인계 자료 누락분 보완</td></tr>
+          <tr><td class="nw">구성원 1on1</td><td>25명 중 22명 완료 (10/22~11/9)</td></tr>
+          <tr><td class="nw">30일차 중간보고</td><td>퇴사자 분석·1on1·복리후생 구성원 의견 (11/10)</td></tr>
+          <tr><td class="nw">리스크 조기 발견</td><td>퇴근 미기록·포괄임금 안내, 연차 자동소멸, 연봉 만료일 경과, 괴롭힘 진술</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details>
+      <summary>7) 진행 중 과제<span class="c">5건</span></summary>
+      <div class="tw"><table>
+        <thead><tr><th>과제</th><th>시점</th></tr></thead>
+        <tbody>
+          <tr><td>지침 2종·취업규칙 시행, 구성원 의견청취·신고</td><td class="num nw">11/26</td></tr>
+          <tr><td>사무실 이전, 웹사이트 주소·좌석 전환</td><td class="num nw">11/26</td></tr>
+          <tr><td>팀 업무추진비 공지·시행</td><td class="nw"><span class="num">11/27</span> 공지 · <span class="num">12/1</span> 시행</td></tr>
+          <tr><td>잔여 팀장 면담 3명, 90일 정착 관리 시작</td><td class="nw">11월 중</td></tr>
+          <tr><td>퇴직연금 품의, 비용관리규정·법인카드 운영안</td><td class="nw">11월 말~12월</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+  </section>
+
+  <section id="summary">
+    <h2>요약</h2>
+    <div class="figs">
+      <div class="fig"><div class="v">3<small>건</small></div><div class="l">지침 2종 제정 ·<br>취업규칙 정비</div></div>
+      <div class="fig"><div class="v">8<small>종</small></div><div class="l">엑셀 관리대장·<br>양식 신규 제작</div></div>
+      <div class="fig"><div class="v">284<small>건</small></div><div class="l">1~10월 급여<br>플렉스 이관 검증</div></div>
+      <div class="fig"><div class="v">9<small>개</small></div><div class="l">인사팀 웹사이트<br>운영 메뉴</div></div>
+      <div class="fig"><div class="v">7<small>건</small></div><div class="l">문서번호 부여<br>인사팀 공지</div></div>
+      <div class="fig"><div class="v">22<small>명</small></div><div class="l">구성원 1on1<br>면담 완료</div></div>
+    </div>
+    <ul class="sum">
+      <li><b>한 일</b><span>규정·데이터·시스템·소통 채널을 세우고, 그 위에서 조직 진단을 진행했습니다. 11/10 중간보고는 이 중 진단 부분입니다.</span></li>
+      <li><b>아쉬운 점</b><span>보고를 한 번에 몰아서 드렸고, 기반 작업은 공유하지 못했습니다.</span></li>
+      <li><b>강화할 업무</b><span>채용과 입사 후 90일 정착 관리를 가장 먼저 강화하겠습니다.</span></li>
+      <li><b>운영 방식</b><span>주 1회 미팅에서 이슈 · 판단 · 결정 필요 사항 · 실행 일정과 함께 <b>이번 주 완료한 일</b>을 짧게 공유하겠습니다.</span></li>
+    </ul>
+  </section>
+
+  <section id="flow">
+    <h2>한 달의 흐름</h2>
+    <p class="lead">첫 2주는 흩어진 기존 자료를 모으고 플렉스 설정을 바로잡는 데 대부분을 썼습니다. 진단·보고는 그 위에서 3주차부터 본격적으로 진행했습니다.</p>
+    <div class="weeks">
+      <div class="band">기존 자료 취합 · 플렉스 정비 (약 1~2주)</div>
+      <div class="band2">제도 정비 · 사내 채널 구축 · 1on1 진행</div>
+      <div class="wk"><div class="d">10.12 – 10.16</div><div class="w">1주차</div>
+        <ul><li class="m">입사, 인계 자료 파악</li><li>연차관리대장</li><li>시용사원 평가표</li><li>출산·육아휴직 통합 신청서</li></ul></div>
+      <div class="wk"><div class="d">10.19 – 10.23</div><div class="w">2주차</div>
+        <ul><li>처우협의 관리대장 · 오퍼</li><li>법인카드 절차 미팅</li><li class="m">1on1 면담 시작</li><li>공지 템플릿 확정</li><li>퇴직연금 비교견적</li></ul></div>
+      <div class="wk"><div class="d">10.26 – 10.30</div><div class="w">3주차</div>
+        <ul><li>연봉 평가 제도</li><li class="m">인사팀 웹사이트 첫 배포</li><li>근태·수당 지침 초안</li><li>경영진 보고 페이지</li></ul></div>
+      <div class="wk"><div class="d">11.02 – 11.06</div><div class="w">4주차</div>
+        <ul><li>신규 입사자 2명 온보딩</li><li>복리후생 · 근무 가이드 메뉴</li><li>공지 005 · 006, 사무실 이전 공지</li><li class="m">취업규칙 검토, 사이트 로그인 잠금</li></ul></div>
+      <div class="wk"><div class="d">11.09 – 11.11</div><div class="w">5주차</div>
+        <ul><li>급여 284건 이관 검증</li><li>1on1 22명 완료</li><li>지침·취업규칙 확정</li><li class="m">11/10 중간보고</li></ul></div>
+    </div>
+    <p class="note">주차 구분은 작업 기록을 기준으로 정리했습니다.</p>
+  </section>
+
+  <section id="work">
+    <h2><span class="k">01</span>수행 업무</h2>
+    <p class="lead">한 달간의 일은 여섯 영역입니다. 진단·보고를 제외한 다섯 영역은 지금까지 별도로 보고드리지 않은 내용입니다.</p>
+    <div class="tw"><table>
+      <thead><tr><th>영역</th><th>핵심 산출물</th><th>회사에 주는 효과</th></tr></thead>
+      <tbody>
+        <tr><td class="nw">규정·제도</td><td>근태관리지침·수당운영지침 제정, 취업규칙 검토·수정(11/26 시행), 팀 업무추진비(12/1), 복리후생 기준, 퇴직연금 도입 준비</td><td>연장근로수당·포괄임금 등 임금체불 리스크 차단</td></tr>
+        <tr><td class="nw">데이터·시스템</td><td>엑셀 관리대장·양식 8종, 플렉스 재설정, 1~10월 급여 284건 이관 검증</td><td>인사 숫자의 단일 원천 확보</td></tr>
+        <tr><td class="nw">사내 인프라</td><td>인사팀 웹사이트(메뉴 9개, 회사 메일 로그인), 경영진 대시보드, 슬랙 온보딩 워크플로</td><td>기준을 한 곳에서 확인, 문의·혼선 감소</td></tr>
+        <tr><td class="nw">공지·운영</td><td>공지 표준 템플릿, 인사팀 공지 7건, 오프보딩·지출 절차, 사무실 이전</td><td>구두 기준을 문서로 고지·증빙</td></tr>
+        <tr><td class="nw">채용·온보딩</td><td>입사 확정 5명 처우 산정, 시용 평가 운영, 입사 서류 절차 개선</td><td>채용 업무 이관 기반</td></tr>
+        <tr><td class="nw">진단·보고</td><td>퇴사자 분석(12개월 26명), 1on1 22명, 30일차 중간보고</td><td>이탈 원인 파악</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="opinion">
+    <h2><span class="k">02</span>인사팀장 의견</h2>
+    <div class="op">
+      <div class="h">가장 잘했다고<br>생각하는 점</div>
+      <div><p>문제를 보여드리는 데서 멈추지 않고, <b>고칠 수 있는 수단을 함께 만든 점</b>입니다. 퇴사 데이터와 면담을 연결해 이탈 원인을 구조로 보여드렸고, 동시에 법적 리스크가 큰 근태·수당 기준은 11/26 시행으로 먼저 정리했습니다.</p>
+      <p>진단이 문제를 보여주었다면, 지침·관리대장·웹사이트는 그 문제를 고칠 도구입니다.</p></div>
+    </div>
+    <div class="op">
+      <div class="h">가장 아쉬운 점</div>
+      <ol>
+        <li><b>한 번에 몰아서 보고한 점.</b> 한 달치 진단을 하루에 드려 소화와 판단에 부담을 드렸습니다. 중간중간 나눠 공유했어야 했습니다.</li>
+        <li><b>추천안이 선명하지 않았던 점.</b> 선택지를 고르게 보여드리는 데 집중해, 제가 무엇을 가장 먼저 해야 한다고 보는지는 약하게 전달됐습니다.</li>
+        <li><b>기반 작업을 보고하지 않은 점.</b> 지침·취업규칙·플렉스·관리대장·웹사이트 작업을 결과물로 공유드린 적이 없어, 한 달의 일이 진단 보고서 하나로만 보였을 것입니다.</li>
+      </ol>
+    </div>
+    <div class="op">
+      <div class="h">어려웠던 점</div>
+      <ul>
+        <li>플렉스 설정(연차 자동소멸, 급여 항목 등)과 기존 자료가 실제 운영과 맞지 않아, 분석 전에 데이터를 바로잡는 데 <b>1~2주</b>가 필요했습니다.</li>
+        <li>인계 원칙은 "30일 안에는 제도 설계를 하지 않는다"였지만, 11/26 사무실 이전과 근태 관행의 법적 리스크 때문에 근태·수당 기준은 미룰 수 없었습니다. 새 제도를 설계했다기보다 리스크를 먼저 막은 것입니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="focus">
+    <h2><span class="k">03</span>가장 강화할 인사업무</h2>
+    <div class="rec"><b>최종 추천: 채용과 입사 후 90일 정착 관리</b><br>최근 12개월 퇴사 26명 중 10명이 입사 90일 안에 나갔고, 같은 기간 입사자 33명 중 16명이 이미 떠났습니다. 채용 비용이 가장 크게 새고 있는 곳입니다.</div>
+    <div class="tw"><table>
+      <thead><tr><th>판단</th><th>영역</th><th>이유</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip c-ok">지금 수용</span></td><td class="nw">채용·온보딩·수습 관리</td><td>이탈이 가장 많은 구간이고, 비용 없이 인사팀이 바로 실행할 수 있음</td></tr>
+        <tr><td><span class="chip c-warn">보류</span></td><td class="nw">평가·보상 제도 설계</td><td>필요하지만 퇴사율이 안정되기 전 도입하면 역효과 우려. 2027년 상반기 착수 제안</td></tr>
+        <tr><td><span class="chip c-mute">지금은 하지 않음</span></td><td class="nw">신규 복지 확대</td><td>구성원이 원하는 것은 새 혜택보다 이미 말한 것의 확정. 확정 공지만 먼저 진행</td></tr>
+      </tbody>
+    </table></div>
+    <p class="lead">11/16 입사자부터 90일 정착 관리(입사 전 준비, 수습 목표 서면 안내, 1주·1개월·2개월 체크인)를 시작하고, 3개월 뒤 같은 기준으로 정착률을 다시 보고드리겠습니다.</p>
+  </section>
+
+  <section id="way">
+    <h2><span class="k">04</span>운영 방식 제안</h2>
+    <p class="lead">대표님 피드백에 따라 주 1회 대면 미팅으로 나눠 논의하겠습니다. 매주 아래 다섯 가지를 1장으로 정리하겠습니다.</p>
+    <ol class="steps">
+      <li>이번 주 새로 확인된 이슈 (3건 이내)</li>
+      <li>인사팀장 판단: 안건별 수용·보류·미시행과 이유, 최종 추천 1개</li>
+      <li>경영진 결정이 필요한 사항</li>
+      <li>결정 후 실행 내용과 일정</li>
+      <li class="new">이번 주 완료한 일 (한 줄씩)</li>
+    </ol>
+    <h3>함께 정렬이 필요한 사항</h3>
+    <div class="tw"><table><tbody>
+      <tr><td class="nw">결정 권한의 범위</td><td>인사팀장이 단독으로 결정하고 사후 공유할 일과, 사전 승인이 필요한 일의 경계를 정하면 실행 속도가 빨라집니다.</td></tr>
+      <tr><td class="nw">주간 미팅 일정</td><td>요일과 시간을 고정해 주시면 안건을 그에 맞춰 준비하겠습니다.</td></tr>
+    </tbody></table></div>
+  </section>
+
+
+
+  <footer>
+    <span>주식회사 언커먼홈 · 나르카 인사팀</span>
+    <span>대외비 · 대표이사 보고용</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('nav.idx a'));
+  var ids=links.map(function(a){return a.getAttribute('href').slice(1)});
+  function onScroll(){
+    var y=window.scrollY+90, cur=ids[0];
+    ids.forEach(function(id){var el=document.getElementById(id); if(el && el.getBoundingClientRect().top+window.scrollY<=y) cur=id;});
+    links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  var ob=document.getElementById('openAll'), ds=[].slice.call(document.querySelectorAll('#appendix details'));
+  ob.addEventListener('click',function(){var open=ds.some(function(d){return !d.open}); ds.forEach(function(d){d.open=open}); ob.textContent=open?'모두 접기':'모두 펼치기';});
+})();
+</script>
+<a href="../" class="hr-back" aria-label="보고자료 목록으로">목록</a><style>.hr-back{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;font:500 13px/1 "Pretendard",-apple-system,"Malgun Gothic",sans-serif;padding:10px 14px;border-radius:999px;background:#202020;color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.15)}.hr-back:hover{background:#444EC6}@media print{.hr-back{display:none}}</style>
+</body>
+</html>
